@@ -12,6 +12,7 @@ import { Dog, Cat } from "./bai_11";
 import { Employee, Manager, Developer } from "./bai_14";
 import { User, Book, Library } from "./bai_15";
 import { Box } from "./bai_16";
+import { Logger } from "./bai_17";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -98,3 +99,15 @@ console.log("Bài 16");
 const numberBox = new Box<number>(123);
 console.log(numberBox);
 console.log(numberBox.value);
+
+//bài 17
+
+// --- Sử dụng ---
+console.log("Bài 17");
+const logger1 = Logger.getInstance();
+const logger2 = Logger.getInstance();
+
+logger1.log("Ứng dụng bắt đầu chạy...");
+logger2.log("Thêm log khác...");
+
+console.log(logger1 === logger2); // true -> chứng minh chỉ có 1 đối tượng

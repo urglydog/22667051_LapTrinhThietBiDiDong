@@ -13,6 +13,7 @@ const bai_11_1 = require("./bai_11");
 const bai_14_1 = require("./bai_14");
 const bai_15_1 = require("./bai_15");
 const bai_16_1 = require("./bai_16");
+const bai_17_1 = require("./bai_17");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -81,3 +82,11 @@ console.log("Bài 16");
 const numberBox = new bai_16_1.Box(123);
 console.log(numberBox);
 console.log(numberBox.value);
+//bài 17
+// --- Sử dụng ---
+console.log("Bài 17");
+const logger1 = bai_17_1.Logger.getInstance();
+const logger2 = bai_17_1.Logger.getInstance();
+logger1.log("Ứng dụng bắt đầu chạy...");
+logger2.log("Thêm log khác...");
+console.log(logger1 === logger2); // true -> chứng minh chỉ có 1 đối tượng
