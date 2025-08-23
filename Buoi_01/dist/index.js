@@ -5,6 +5,7 @@ const bai_02_1 = require("./bai_02");
 const bai_03_1 = require("./bai_03");
 const bai_04_1 = require("./bai_04");
 const bai_05_1 = require("./bai_05");
+const bai_06_1 = require("./bai_06");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -22,3 +23,6 @@ rec.perimeterCaculate();
 var acc = new bai_05_1.BankAccount(10);
 acc.deposit(2);
 acc.withdraw(5);
+//bài 06
+var book = new bai_06_1.Book("Dế mèn phiêu lưu kí", "Nguyễn Nhật Ánh", 2004);
+console.log(book);

@@ -3,6 +3,7 @@ import { Student } from "./bai_02";
 import { Car } from "./bai_03";
 import { Rectangle } from "./bai_04";
 import { BankAccount } from "./bai_05";
+import { Book } from "./bai_06";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -24,3 +25,7 @@ rec.perimeterCaculate();
 var acc = new BankAccount(10);
 acc.deposit(2);
 acc.withdraw(5);
+
+//bài 06
+var book = new Book("Dế mèn phiêu lưu kí", "Nguyễn Nhật Ánh", 2004);
+console.log(book);
