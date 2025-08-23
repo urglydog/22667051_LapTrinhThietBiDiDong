@@ -4,6 +4,7 @@ import { Car } from "./bai_03";
 import { Rectangle } from "./bai_04";
 import { BankAccount } from "./bai_05";
 import { Book } from "./bai_06";
+import { User } from "./bai_07";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -29,3 +30,11 @@ acc.withdraw(5);
 //bài 06
 var book = new Book("Dế mèn phiêu lưu kí", "Nguyễn Nhật Ánh", 2004);
 console.log(book);
+
+//bài 07
+var user = new User("Nguyễn Chí Thiện");
+console.log("Bài 07");
+
+console.log(user.name);
+user.name = "Nguyễn Chí Thành";
+console.log(user.name);
