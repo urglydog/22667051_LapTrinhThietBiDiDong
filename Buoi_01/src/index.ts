@@ -3,13 +3,14 @@ import { Student } from "./bai_02";
 import { Car } from "./bai_03";
 import { Rectangle } from "./bai_04";
 import { BankAccount } from "./bai_05";
-import { Book } from "./bai_06";
-import { User } from "./bai_07";
+// import { Book } from "./bai_06";
+// import { User } from "./bai_07";
 import { expensiveProducts } from "./bai_08";
 import { Animal } from "./bai_09";
 import { Account } from "./bai_10";
 import { Dog, Cat } from "./bai_11";
 import { Employee, Manager, Developer } from "./bai_14";
+import { User, Book, Library } from "./bai_15";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -83,3 +84,10 @@ console.log(manager.manageDetail()); // Alice is managing the IT department.
 const dev = new Developer("Bob");
 console.log(dev.getDetails()); // Employee: Bob, Salary: 4000
 console.log(dev.devDetail()); // Bob is writing code in TypeScript.
+
+//bài 15
+console.log("Bài 15");
+var book1 = new Book("Dế mèn phiêu lưu kí");
+var lib = new Library();
+lib.addBooks(book1);
+console.log(lib.books);

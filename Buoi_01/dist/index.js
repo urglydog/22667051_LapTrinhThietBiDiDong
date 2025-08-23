@@ -5,12 +5,13 @@ const bai_02_1 = require("./bai_02");
 const bai_03_1 = require("./bai_03");
 const bai_04_1 = require("./bai_04");
 const bai_05_1 = require("./bai_05");
-const bai_06_1 = require("./bai_06");
-const bai_07_1 = require("./bai_07");
+// import { Book } from "./bai_06";
+// import { User } from "./bai_07";
 const bai_08_1 = require("./bai_08");
 const bai_10_1 = require("./bai_10");
 const bai_11_1 = require("./bai_11");
 const bai_14_1 = require("./bai_14");
+const bai_15_1 = require("./bai_15");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -31,10 +32,10 @@ console.log(acc.balance);
 acc.withdraw(5);
 console.log(acc.balance);
 //bài 06
-var book = new bai_06_1.Book("Dế mèn phiêu lưu kí", "Nguyễn Nhật Ánh", 2004);
+var book = new bai_15_1.Book("Dế mèn phiêu lưu kí", "Nguyễn Nhật Ánh", 2004);
 console.log(book);
 //bài 07
-var user = new bai_07_1.User("Nguyễn Chí Thiện");
+var user = new bai_15_1.User("Nguyễn Chí Thiện");
 console.log("Bài 07");
 console.log(user.name);
 user.name = "Nguyễn Chí Thành";
@@ -68,3 +69,9 @@ console.log(manager.manageDetail()); // Alice is managing the IT department.
 const dev = new bai_14_1.Developer("Bob");
 console.log(dev.getDetails()); // Employee: Bob, Salary: 4000
 console.log(dev.devDetail()); // Bob is writing code in TypeScript.
+//bài 15
+console.log("Bài 15");
+var book1 = new bai_15_1.Book("Dế mèn phiêu lưu kí");
+var lib = new bai_15_1.Library();
+lib.addBooks(book1);
+console.log(lib.books);
