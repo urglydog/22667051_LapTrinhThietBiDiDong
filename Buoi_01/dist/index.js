@@ -19,6 +19,6 @@ var rec = new bai_04_1.Rectangle(3, 4);
 rec.areaCaculate();
 rec.perimeterCaculate();
 //bài 05
-var acc = new bai_05_1.BankAccount(1000000000);
-acc.deposit(200000000);
-acc.withdraw(100000000);
+var acc = new bai_05_1.BankAccount(10);
+acc.deposit(2);
+acc.withdraw(5);
