@@ -7,6 +7,7 @@ const bai_04_1 = require("./bai_04");
 const bai_05_1 = require("./bai_05");
 const bai_06_1 = require("./bai_06");
 const bai_07_1 = require("./bai_07");
+const bai_08_1 = require("./bai_08");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -33,3 +34,5 @@ console.log("Bài 07");
 console.log(user.name);
 user.name = "Nguyễn Chí Thành";
 console.log(user.name);
+//bài 08
+console.log("Các sản phẩm có giá > 100:", bai_08_1.expensiveProducts);

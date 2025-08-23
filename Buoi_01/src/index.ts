@@ -5,6 +5,7 @@ import { Rectangle } from "./bai_04";
 import { BankAccount } from "./bai_05";
 import { Book } from "./bai_06";
 import { User } from "./bai_07";
+import { expensiveProducts } from "./bai_08";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -38,3 +39,6 @@ console.log("Bài 07");
 console.log(user.name);
 user.name = "Nguyễn Chí Thành";
 console.log(user.name);
+
+//bài 08
+console.log("Các sản phẩm có giá > 100:", expensiveProducts);
