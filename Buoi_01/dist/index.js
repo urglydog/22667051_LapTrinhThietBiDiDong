@@ -12,6 +12,7 @@ const bai_10_1 = require("./bai_10");
 const bai_11_1 = require("./bai_11");
 const bai_14_1 = require("./bai_14");
 const bai_15_1 = require("./bai_15");
+const bai_16_1 = require("./bai_16");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -75,3 +76,8 @@ var book1 = new bai_15_1.Book("Dế mèn phiêu lưu kí");
 var lib = new bai_15_1.Library();
 lib.addBooks(book1);
 console.log(lib.books);
+//bài 16
+console.log("Bài 16");
+const numberBox = new bai_16_1.Box(123);
+console.log(numberBox);
+console.log(numberBox.value);

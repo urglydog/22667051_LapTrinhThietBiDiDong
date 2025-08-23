@@ -11,6 +11,7 @@ import { Account } from "./bai_10";
 import { Dog, Cat } from "./bai_11";
 import { Employee, Manager, Developer } from "./bai_14";
 import { User, Book, Library } from "./bai_15";
+import { Box } from "./bai_16";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -91,3 +92,9 @@ var book1 = new Book("Dế mèn phiêu lưu kí");
 var lib = new Library();
 lib.addBooks(book1);
 console.log(lib.books);
+
+//bài 16
+console.log("Bài 16");
+const numberBox = new Box<number>(123);
+console.log(numberBox);
+console.log(numberBox.value);
