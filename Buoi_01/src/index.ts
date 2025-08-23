@@ -13,6 +13,7 @@ import { Employee, Manager, Developer } from "./bai_14";
 import { User, Book, Library } from "./bai_15";
 import { Box } from "./bai_16";
 import { Logger } from "./bai_17";
+import { MathUtil } from "./bai_18";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -111,3 +112,10 @@ logger1.log("Ứng dụng bắt đầu chạy...");
 logger2.log("Thêm log khác...");
 
 console.log(logger1 === logger2); // true -> chứng minh chỉ có 1 đối tượng
+
+//bài 18
+console.log("Bài 18");
+console.log(MathUtil.add(5, 3)); // 8
+console.log(MathUtil.subtract(5, 3)); // 2
+console.log(MathUtil.multiply(5, 3)); // 15
+console.log(MathUtil.divide(10, 2)); // 5

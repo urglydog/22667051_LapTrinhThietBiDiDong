@@ -14,6 +14,7 @@ const bai_14_1 = require("./bai_14");
 const bai_15_1 = require("./bai_15");
 const bai_16_1 = require("./bai_16");
 const bai_17_1 = require("./bai_17");
+const bai_18_1 = require("./bai_18");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -90,3 +91,9 @@ const logger2 = bai_17_1.Logger.getInstance();
 logger1.log("Ứng dụng bắt đầu chạy...");
 logger2.log("Thêm log khác...");
 console.log(logger1 === logger2); // true -> chứng minh chỉ có 1 đối tượng
+//bài 18
+console.log("Bài 18");
+console.log(bai_18_1.MathUtil.add(5, 3)); // 8
+console.log(bai_18_1.MathUtil.subtract(5, 3)); // 2
+console.log(bai_18_1.MathUtil.multiply(5, 3)); // 15
+console.log(bai_18_1.MathUtil.divide(10, 2)); // 5
