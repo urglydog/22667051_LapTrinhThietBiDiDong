@@ -6,6 +6,7 @@ import { BankAccount } from "./bai_05";
 import { Book } from "./bai_06";
 import { User } from "./bai_07";
 import { expensiveProducts } from "./bai_08";
+import { Animal } from "./bai_09";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -42,3 +43,7 @@ console.log(user.name);
 
 //bài 08
 console.log("Các sản phẩm có giá > 100:", expensiveProducts);
+
+//bài 09
+var anime = new Animal("dfafa");
+// ==> báo lỗi không thể tạo một đối tượng từ interface
