@@ -7,7 +7,8 @@ class Animal {
         this.name = name;
     }
     sound() {
-        // phương thức của interface để rỗng để lớp khác overide
+        // phương thức của interface để rỗng để
+        // lớp khác overide
         // console.log("gâu gâu");
     }
 }

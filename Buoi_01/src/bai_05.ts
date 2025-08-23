@@ -6,15 +6,16 @@ export class BankAccount {
   }
 
   deposit(amount: number) {
-    console.log("Câu 05");
-
-    console.log("Account has :", this.balance);
-    console.log("You just deposit :", amount);
-    console.log("Account has after that ", this.balance + amount);
+    // console.log("Câu 05");
+    // console.log("Account has :", this.balance);
+    // console.log("You just deposit :", amount);
+    // console.log("Account has after that ", this.balance + amount);
+    this.balance = this.balance + amount;
   }
   withdraw(amount: number) {
-    console.log("Account has :", this.balance);
-    console.log("You just deposit :", amount);
-    console.log("Account has after that ", this.balance - amount);
+    // console.log("Account has :", this.balance);
+    // console.log("You just deposit :", amount);
+    // console.log("Account has after that ", this.balance - amount);
+    this.balance = this.balance - amount;
   }
 }
