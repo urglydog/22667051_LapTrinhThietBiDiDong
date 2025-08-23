@@ -9,6 +9,7 @@ const bai_06_1 = require("./bai_06");
 const bai_07_1 = require("./bai_07");
 const bai_08_1 = require("./bai_08");
 const bai_10_1 = require("./bai_10");
+const bai_11_1 = require("./bai_11");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -40,13 +41,21 @@ console.log(user.name);
 //bài 08
 console.log("Các sản phẩm có giá > 100:", bai_08_1.expensiveProducts);
 //bài 09
-// var anime = new Animal("dfafa");
+// var anime = new Animal();
 // ==> báo lỗi không thể tạo một đối tượng từ interface
 //bài 10
 var account = new bai_10_1.Account("NCT", 180304, 1000000000);
 console.log(account.user_name);
 // => lấy được do là public
-console.log(account.acount_number);
-//  => không lấy được do là private
-console.log(account.balance);
-//  => không lấy được do là private
+// console.log(account.acount_number);
+// //  => không lấy được do là private
+// console.log(account.balance);
+// account.balance += 10;
+// ==>Cannot assign to 'balance'
+// ==>because it is a read-only property.ts(2540)
+//bài 11
+console.log("Bài 11");
+var dog = new bai_11_1.Dog();
+console.log(dog.bark());
+var cat = new bai_11_1.Cat();
+console.log(cat.meow());

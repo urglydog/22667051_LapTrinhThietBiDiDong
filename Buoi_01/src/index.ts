@@ -8,6 +8,7 @@ import { User } from "./bai_07";
 import { expensiveProducts } from "./bai_08";
 import { Animal } from "./bai_09";
 import { Account } from "./bai_10";
+import { Dog, Cat } from "./bai_11";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -48,16 +49,25 @@ console.log(user.name);
 console.log("Các sản phẩm có giá > 100:", expensiveProducts);
 
 //bài 09
-// var anime = new Animal("dfafa");
+// var anime = new Animal();
 // ==> báo lỗi không thể tạo một đối tượng từ interface
 
 //bài 10
 var account = new Account("NCT", 180304, 1000000000);
 console.log(account.user_name);
 // => lấy được do là public
-console.log(account.acount_number);
-//  => không lấy được do là private
-console.log(account.balance);
-account.balance += 10;
-==>Cannot assign to 'balance' 
-==>because it is a read-only property.ts(2540)
+// console.log(account.acount_number);
+// //  => không lấy được do là private
+// console.log(account.balance);
+// account.balance += 10;
+// ==>Cannot assign to 'balance'
+// ==>because it is a read-only property.ts(2540)
+
+//bài 11
+console.log("Bài 11");
+
+var dog = new Dog();
+console.log(dog.bark());
+
+var cat = new Cat();
+console.log(cat.meow());
