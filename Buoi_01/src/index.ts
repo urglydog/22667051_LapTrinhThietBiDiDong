@@ -9,6 +9,7 @@ import { expensiveProducts } from "./bai_08";
 import { Animal } from "./bai_09";
 import { Account } from "./bai_10";
 import { Dog, Cat } from "./bai_11";
+import { Employee, Manager, Developer } from "./bai_14";
 // Bài 01
 var person = new Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -71,3 +72,14 @@ console.log(dog.bark());
 
 var cat = new Cat();
 console.log(cat.meow());
+
+//bài 14
+console.log("Bài 14");
+
+const manager = new Manager("Alice");
+console.log(manager.getDetails()); // Employee: Alice, Salary: 5000
+console.log(manager.manageDetail()); // Alice is managing the IT department.
+
+const dev = new Developer("Bob");
+console.log(dev.getDetails()); // Employee: Bob, Salary: 4000
+console.log(dev.devDetail()); // Bob is writing code in TypeScript.

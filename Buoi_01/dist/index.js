@@ -10,6 +10,7 @@ const bai_07_1 = require("./bai_07");
 const bai_08_1 = require("./bai_08");
 const bai_10_1 = require("./bai_10");
 const bai_11_1 = require("./bai_11");
+const bai_14_1 = require("./bai_14");
 // Bài 01
 var person = new bai_01_1.Person("Nguyễn Chí Thiện", 20);
 person.introduction();
@@ -59,3 +60,11 @@ var dog = new bai_11_1.Dog();
 console.log(dog.bark());
 var cat = new bai_11_1.Cat();
 console.log(cat.meow());
+//bài 14
+console.log("Bài 14");
+const manager = new bai_14_1.Manager("Alice");
+console.log(manager.getDetails()); // Employee: Alice, Salary: 5000
+console.log(manager.manageDetail()); // Alice is managing the IT department.
+const dev = new bai_14_1.Developer("Bob");
+console.log(dev.getDetails()); // Employee: Bob, Salary: 4000
+console.log(dev.devDetail()); // Bob is writing code in TypeScript.
