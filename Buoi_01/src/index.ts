@@ -240,9 +240,16 @@ import { Payment, CardPayment, CashPayment } from "./bai_23";
 // order.addProduct(new Product("Keyboard", 10, 50));
 // console.log("Total price is: ", order.totalPrice());
 
-import { Teacher } from "./bai_27";
-console.log("Bài 27");
+// import { Teacher } from "./bai_27";
+// console.log("Bài 27");
 
-const t = new Teacher("Nguyen Van A", 40, "Toán");
-t.introduce();
-// 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.
+// const t = new Teacher("Nguyen Van A", 40, "Toán");
+// t.introduce();
+// // 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.
+import { Dog, Cat } from "./bai_28";
+console.log("Bài 28");
+const dog = new Dog();
+dog.speak(); // Gâu gâu!
+
+const cat = new Cat();
+cat.speak(); // Meo meo!

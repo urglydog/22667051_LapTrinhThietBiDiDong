@@ -169,8 +169,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // order.addProduct(new Product("Mouse", 10, 20));
 // order.addProduct(new Product("Keyboard", 10, 50));
 // console.log("Total price is: ", order.totalPrice());
-const bai_27_1 = require("./bai_27");
-console.log("Bài 27");
-const t = new bai_27_1.Teacher("Nguyen Van A", 40, "Toán");
-t.introduce();
-// 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.
+// import { Teacher } from "./bai_27";
+// console.log("Bài 27");
+// const t = new Teacher("Nguyen Van A", 40, "Toán");
+// t.introduce();
+// // 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.
+const bai_28_1 = require("./bai_28");
+console.log("Bài 28");
+const dog = new bai_28_1.Dog();
+dog.speak(); // Gâu gâu!
+const cat = new bai_28_1.Cat();
+cat.speak(); // Meo meo!
