@@ -254,10 +254,29 @@ import { Payment, CardPayment, CashPayment } from "./bai_23";
 // const cat = new Cat();
 // cat.speak(); // Meo meo!
 
-import { Car, Robot, Movable } from "./bai_29";
-console.log("Bài 29");
-const car: Movable = new Car();
-car.move(); // Xe hơi đang chạy trên đường.
+// import { Car, Robot, Movable } from "./bai_29";
+// console.log("Bài 29");
+// const car: Movable = new Car();
+// car.move(); // Xe hơi đang chạy trên đường.
 
-const robot: Movable = new Robot();
-robot.move(); // Robot đang di chuyển bằng bánh xe.
+// const robot: Movable = new Robot();
+// robot.move(); // Robot đang di chuyển bằng bánh xe.
+
+import { Teacher } from "./bai_27";
+import { School, Student } from "./bai_30";
+console.log("Bài 30");
+
+const school = new School();
+
+const teacher1 = new Teacher("Nguyen Van A", 40, "Toán");
+const teacher2 = new Teacher("Tran Thi B", 35, "Văn");
+
+const student1 = new Student("Le Van C", 15, 10);
+const student2 = new Student("Pham Thi D", 16, 11);
+
+school.addTeacher(teacher1);
+school.addTeacher(teacher2);
+school.addStudent(student1);
+school.addStudent(student2);
+
+school.displayInfo();

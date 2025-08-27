@@ -180,9 +180,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // dog.speak(); // Gâu gâu!
 // const cat = new Cat();
 // cat.speak(); // Meo meo!
-const bai_29_1 = require("./bai_29");
-console.log("Bài 29");
-const car = new bai_29_1.Car();
-car.move(); // Xe hơi đang chạy trên đường.
-const robot = new bai_29_1.Robot();
-robot.move(); // Robot đang di chuyển bằng bánh xe.
+// import { Car, Robot, Movable } from "./bai_29";
+// console.log("Bài 29");
+// const car: Movable = new Car();
+// car.move(); // Xe hơi đang chạy trên đường.
+// const robot: Movable = new Robot();
+// robot.move(); // Robot đang di chuyển bằng bánh xe.
+const bai_27_1 = require("./bai_27");
+const bai_30_1 = require("./bai_30");
+console.log("Bài 30");
+const school = new bai_30_1.School();
+const teacher1 = new bai_27_1.Teacher("Nguyen Van A", 40, "Toán");
+const teacher2 = new bai_27_1.Teacher("Tran Thi B", 35, "Văn");
+const student1 = new bai_30_1.Student("Le Van C", 15, 10);
+const student2 = new bai_30_1.Student("Pham Thi D", 16, 11);
+school.addTeacher(teacher1);
+school.addTeacher(teacher2);
+school.addStudent(student1);
+school.addStudent(student2);
+school.displayInfo();
