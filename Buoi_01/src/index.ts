@@ -220,13 +220,22 @@ import { Payment, CardPayment, CashPayment } from "./bai_23";
 // const ac = new AirConditioner();
 // ac.turnOn();
 
-import { Shape } from "./bai_25";
-console.log("Bài 25");
+// import { Shape } from "./bai_25";
+// console.log("Bài 25");
 
-// Gọi trực tiếp qua class, không cần tạo đối tượng
-Shape.describe();
-// 👉 In ra: "Shape là lớp cơ sở cho các hình học."
+// // Gọi trực tiếp qua class, không cần tạo đối tượng
+// Shape.describe();
+// // 👉 In ra: "Shape là lớp cơ sở cho các hình học."
 
-// Nếu thử tạo object
-const s = new Shape();
-// s.describe(); ❌ Không dùng được, vì describe() là static
+// // Nếu thử tạo object
+// const s = new Shape();
+// // s.describe(); ❌ Không dùng được, vì describe() là static
+
+import { Order, Product } from "./bai_26";
+console.log("Bài 26");
+
+const order = new Order();
+order.addProduct(new Product("Laptop", 10, 1500));
+order.addProduct(new Product("Mouse", 10, 20));
+order.addProduct(new Product("Keyboard", 10, 50));
+console.log("Total price is: ", order.totalPrice());
