@@ -17,7 +17,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // import { Logger } from "./bai_17";
 // import { MathUtil } from "./bai_18";
 // import { Animal, Dog, Cat } from "./bai_19";
-const bai_20_1 = require("./bai_20");
+// import { Car, Bike } from "./bai_20";
+const bai_21_1 = require("./bai_21");
 // Bài 01
 // var person = new Person("Nguyễn Chí Thiện", 20);
 // person.introduction();
@@ -107,8 +108,18 @@ const bai_20_1 = require("./bai_20");
 //   console.log(animal.speak());
 // });
 // bài 20
-console.log("Bài 20");
-var car = new bai_20_1.Car("Toyota");
-var bike = new bai_20_1.Bike("Honda");
-console.log(car.move());
-console.log(bike.move());
+// console.log("Bài 20");
+// var car = new Car("Toyota");
+// var bike = new Bike("Honda");
+// console.log(car.move());
+// console.log(bike.move());
+// bài 21
+console.log("Bài 21");
+const digitRepo = new bai_21_1.Repository();
+digitRepo.add(1);
+digitRepo.add(2);
+console.log("Digit repository:", digitRepo.getAll());
+const strRepo = new bai_21_1.Repository();
+strRepo.add("a");
+strRepo.add("b");
+console.log("String repository:", strRepo.getAll());
