@@ -17,7 +17,8 @@
 // import { Animal, Dog, Cat } from "./bai_19";
 // import { Car, Bike } from "./bai_20";
 // import { Repository } from "./bai_21";
-import { Stack } from "./bai_22";
+// import { Stack } from "./bai_22";
+import { Payment, CardPayment, CashPayment } from "./bai_23";
 
 // Bài 01
 // var person = new Person("Nguyễn Chí Thiện", 20);
@@ -154,49 +155,57 @@ import { Stack } from "./bai_22";
 // console.log("String repository:", strRepo.getAll());
 
 //bài 22
-console.log("Bài 22");
-console.log("=== Test Stack<number> ===");
-const numStack = new Stack<number>();
+// console.log("Bài 22");
+// console.log("=== Test Stack<number> ===");
+// const numStack = new Stack<number>();
 
-// Test isEmpty trên stack rỗng
-console.log(numStack.isEmpty()); // true
+// // Test isEmpty trên stack rỗng
+// console.log(numStack.isEmpty()); // true
 
-// Push số
-numStack.push(10);
-numStack.push(20);
-numStack.push(30);
-console.log(numStack.peek()); // 30 (top)
+// // Push số
+// numStack.push(10);
+// numStack.push(20);
+// numStack.push(30);
+// console.log(numStack.peek()); // 30 (top)
 
-// Pop số
-console.log(numStack.pop()); // 30
-console.log(numStack.peek()); // 20
-console.log(numStack.isEmpty()); // false
+// // Pop số
+// console.log(numStack.pop()); // 30
+// console.log(numStack.peek()); // 20
+// console.log(numStack.isEmpty()); // false
 
-// Pop hết
-numStack.pop(); // 20
-numStack.pop(); // 10
-console.log(numStack.pop()); // undefined (stack rỗng)
-console.log(numStack.isEmpty()); // true
+// // Pop hết
+// numStack.pop(); // 20
+// numStack.pop(); // 10
+// console.log(numStack.pop()); // undefined (stack rỗng)
+// console.log(numStack.isEmpty()); // true
 
-console.log("=== Test Stack<string> ===");
-const strStack = new Stack<string>();
+// console.log("=== Test Stack<string> ===");
+// const strStack = new Stack<string>();
 
-// Test isEmpty trên stack rỗng
-console.log(strStack.isEmpty()); // true
+// // Test isEmpty trên stack rỗng
+// console.log(strStack.isEmpty()); // true
 
-// Push chuỗi
-strStack.push("apple");
-strStack.push("banana");
-strStack.push("cherry");
-console.log(strStack.peek()); // "cherry"
+// // Push chuỗi
+// strStack.push("apple");
+// strStack.push("banana");
+// strStack.push("cherry");
+// console.log(strStack.peek()); // "cherry"
 
-// Pop chuỗi
-console.log(strStack.pop()); // "cherry"
-console.log(strStack.peek()); // "banana"
-console.log(strStack.isEmpty()); // false
+// // Pop chuỗi
+// console.log(strStack.pop()); // "cherry"
+// console.log(strStack.peek()); // "banana"
+// console.log(strStack.isEmpty()); // false
 
-// Pop hết
-strStack.pop(); // "banana"
-strStack.pop(); // "apple"
-console.log(strStack.pop()); // undefined (stack rỗng)
-console.log(strStack.isEmpty()); // true
+// // Pop hết
+// strStack.pop(); // "banana"
+// strStack.pop(); // "apple"
+// console.log(strStack.pop()); // undefined (stack rỗng)
+// console.log(strStack.isEmpty()); // true
+
+console.log("Bài 23");
+
+const cash: Payment = new CashPayment();
+cash.pay(100000); // Thanh toán 100000 bằng tiền mặt.
+
+const card: Payment = new CardPayment();
+card.pay(250000); // Thanh toán 250000 bằng thẻ.
