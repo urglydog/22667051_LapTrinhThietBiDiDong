@@ -162,10 +162,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // // Nếu thử tạo object
 // const s = new Shape();
 // // s.describe(); ❌ Không dùng được, vì describe() là static
-const bai_26_1 = require("./bai_26");
-console.log("Bài 26");
-const order = new bai_26_1.Order();
-order.addProduct(new bai_26_1.Product("Laptop", 10, 1500));
-order.addProduct(new bai_26_1.Product("Mouse", 10, 20));
-order.addProduct(new bai_26_1.Product("Keyboard", 10, 50));
-console.log("Total price is: ", order.totalPrice());
+// import { Order, Product } from "./bai_26";
+// console.log("Bài 26");
+// const order = new Order();
+// order.addProduct(new Product("Laptop", 10, 1500));
+// order.addProduct(new Product("Mouse", 10, 20));
+// order.addProduct(new Product("Keyboard", 10, 50));
+// console.log("Total price is: ", order.totalPrice());
+const bai_27_1 = require("./bai_27");
+console.log("Bài 27");
+const t = new bai_27_1.Teacher("Nguyen Van A", 40, "Toán");
+t.introduce();
+// 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.

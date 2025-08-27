@@ -231,11 +231,18 @@ import { Payment, CardPayment, CashPayment } from "./bai_23";
 // const s = new Shape();
 // // s.describe(); ❌ Không dùng được, vì describe() là static
 
-import { Order, Product } from "./bai_26";
-console.log("Bài 26");
+// import { Order, Product } from "./bai_26";
+// console.log("Bài 26");
 
-const order = new Order();
-order.addProduct(new Product("Laptop", 10, 1500));
-order.addProduct(new Product("Mouse", 10, 20));
-order.addProduct(new Product("Keyboard", 10, 50));
-console.log("Total price is: ", order.totalPrice());
+// const order = new Order();
+// order.addProduct(new Product("Laptop", 10, 1500));
+// order.addProduct(new Product("Mouse", 10, 20));
+// order.addProduct(new Product("Keyboard", 10, 50));
+// console.log("Total price is: ", order.totalPrice());
+
+import { Teacher } from "./bai_27";
+console.log("Bài 27");
+
+const t = new Teacher("Nguyen Van A", 40, "Toán");
+t.introduce();
+// 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.
