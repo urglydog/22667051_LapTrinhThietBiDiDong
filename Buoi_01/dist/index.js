@@ -174,9 +174,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // const t = new Teacher("Nguyen Van A", 40, "Toán");
 // t.introduce();
 // // 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.
-const bai_28_1 = require("./bai_28");
-console.log("Bài 28");
-const dog = new bai_28_1.Dog();
-dog.speak(); // Gâu gâu!
-const cat = new bai_28_1.Cat();
-cat.speak(); // Meo meo!
+// import { Dog, Cat } from "./bai_28";
+// console.log("Bài 28");
+// const dog = new Dog();
+// dog.speak(); // Gâu gâu!
+// const cat = new Cat();
+// cat.speak(); // Meo meo!
+const bai_29_1 = require("./bai_29");
+console.log("Bài 29");
+const car = new bai_29_1.Car();
+car.move(); // Xe hơi đang chạy trên đường.
+const robot = new bai_29_1.Robot();
+robot.move(); // Robot đang di chuyển bằng bánh xe.

@@ -246,10 +246,18 @@ import { Payment, CardPayment, CashPayment } from "./bai_23";
 // const t = new Teacher("Nguyen Van A", 40, "Toán");
 // t.introduce();
 // // 👉 Xin chào, tôi là Nguyen Van A, 40 tuổi. Tôi dạy môn Toán.
-import { Dog, Cat } from "./bai_28";
-console.log("Bài 28");
-const dog = new Dog();
-dog.speak(); // Gâu gâu!
+// import { Dog, Cat } from "./bai_28";
+// console.log("Bài 28");
+// const dog = new Dog();
+// dog.speak(); // Gâu gâu!
 
-const cat = new Cat();
-cat.speak(); // Meo meo!
+// const cat = new Cat();
+// cat.speak(); // Meo meo!
+
+import { Car, Robot, Movable } from "./bai_29";
+console.log("Bài 29");
+const car: Movable = new Car();
+car.move(); // Xe hơi đang chạy trên đường.
+
+const robot: Movable = new Robot();
+robot.move(); // Robot đang di chuyển bằng bánh xe.
