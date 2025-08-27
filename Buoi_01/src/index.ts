@@ -14,7 +14,9 @@
 // import { Box } from "./bai_16";
 // import { Logger } from "./bai_17";
 // import { MathUtil } from "./bai_18";
-import { Animal, Dog, Cat } from "./bai_19";
+// import { Animal, Dog, Cat } from "./bai_19";
+import { Car, Bike } from "./bai_20";
+
 // Bài 01
 // var person = new Person("Nguyễn Chí Thiện", 20);
 // person.introduction();
@@ -122,9 +124,17 @@ import { Animal, Dog, Cat } from "./bai_19";
 // console.log(MathUtil.divide(10, 2)); // 5
 
 // bài 19
-console.log("Bài 19");
+// console.log("Bài 19");
 
-const animals: Animal[] = [new Dog(), new Cat(), new Animal()];
-animals.forEach((animal) => {
-  console.log(animal.speak());
-});
+// const animals: Animal[] = [new Dog(), new Cat(), new Animal()];
+// animals.forEach((animal) => {
+//   console.log(animal.speak());
+// });
+
+// bài 20
+console.log("Bài 20");
+var car = new Car("Toyota");
+var bike = new Bike("Honda");
+
+console.log(car.move());
+console.log(bike.move());
