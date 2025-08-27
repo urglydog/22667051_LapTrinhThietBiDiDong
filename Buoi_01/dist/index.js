@@ -147,10 +147,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // cash.pay(100000); // Thanh toán 100000 bằng tiền mặt.
 // const card: Payment = new CardPayment();
 // card.pay(250000); // Thanh toán 250000 bằng thẻ.
-const bai_24_1 = require("./bai_24");
-console.log("Bài 24");
-console.log("=== Test Appliance ===");
-const fan = new bai_24_1.Fan();
-fan.turnOn();
-const ac = new bai_24_1.AirConditioner();
-ac.turnOn();
+// import { Fan, AirConditioner } from "./bai_24";
+// console.log("Bài 24");
+// console.log("=== Test Appliance ===");
+// const fan = new Fan();
+// fan.turnOn();
+// const ac = new AirConditioner();
+// ac.turnOn();
+const bai_25_1 = require("./bai_25");
+console.log("Bài 25");
+// Gọi trực tiếp qua class, không cần tạo đối tượng
+bai_25_1.Shape.describe();
+// 👉 In ra: "Shape là lớp cơ sở cho các hình học."
+// Nếu thử tạo object
+const s = new bai_25_1.Shape();
+// s.describe(); ❌ Không dùng được, vì describe() là static

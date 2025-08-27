@@ -210,12 +210,23 @@ import { Payment, CardPayment, CashPayment } from "./bai_23";
 // const card: Payment = new CardPayment();
 // card.pay(250000); // Thanh toán 250000 bằng thẻ.
 
-import { Fan, AirConditioner } from "./bai_24";
-console.log("Bài 24");
-console.log("=== Test Appliance ===");
+// import { Fan, AirConditioner } from "./bai_24";
+// console.log("Bài 24");
+// console.log("=== Test Appliance ===");
 
-const fan = new Fan();
-fan.turnOn();
+// const fan = new Fan();
+// fan.turnOn();
 
-const ac = new AirConditioner();
-ac.turnOn();
+// const ac = new AirConditioner();
+// ac.turnOn();
+
+import { Shape } from "./bai_25";
+console.log("Bài 25");
+
+// Gọi trực tiếp qua class, không cần tạo đối tượng
+Shape.describe();
+// 👉 In ra: "Shape là lớp cơ sở cho các hình học."
+
+// Nếu thử tạo object
+const s = new Shape();
+// s.describe(); ❌ Không dùng được, vì describe() là static
