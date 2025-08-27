@@ -1,26 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// import { Person } from "./bai_01";
-// import { Student } from "./bai_02";
-// import { Car } from "./bai_03";
-// import { Rectangle } from "./bai_04";
-// import { BankAccount } from "./bai_05";
-// import { Book } from "./bai_06";
-// import { User } from "./bai_07";
-// import { expensiveProducts } from "./bai_08";
-// import { Animal } from "./bai_09";
-// import { Account } from "./bai_10";
-// import { Dog, Cat } from "./bai_11";
-// import { Employee, Manager, Developer } from "./bai_14";
-// import { User, Book, Library } from "./bai_15";
-// import { Box } from "./bai_16";
-// import { Logger } from "./bai_17";
-// import { MathUtil } from "./bai_18";
-// import { Animal, Dog, Cat } from "./bai_19";
-// import { Car, Bike } from "./bai_20";
-// import { Repository } from "./bai_21";
-// import { Stack } from "./bai_22";
-const bai_23_1 = require("./bai_23");
 // Bài 01
 // var person = new Person("Nguyễn Chí Thiện", 20);
 // person.introduction();
@@ -163,8 +142,15 @@ const bai_23_1 = require("./bai_23");
 // strStack.pop(); // "apple"
 // console.log(strStack.pop()); // undefined (stack rỗng)
 // console.log(strStack.isEmpty()); // true
-console.log("Bài 23");
-const cash = new bai_23_1.CashPayment();
-cash.pay(100000); // Thanh toán 100000 bằng tiền mặt.
-const card = new bai_23_1.CardPayment();
-card.pay(250000); // Thanh toán 250000 bằng thẻ.
+// console.log("Bài 23");
+// const cash: Payment = new CashPayment();
+// cash.pay(100000); // Thanh toán 100000 bằng tiền mặt.
+// const card: Payment = new CardPayment();
+// card.pay(250000); // Thanh toán 250000 bằng thẻ.
+const bai_24_1 = require("./bai_24");
+console.log("Bài 24");
+console.log("=== Test Appliance ===");
+const fan = new bai_24_1.Fan();
+fan.turnOn();
+const ac = new bai_24_1.AirConditioner();
+ac.turnOn();
