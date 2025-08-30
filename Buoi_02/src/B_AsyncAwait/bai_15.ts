@@ -1,6 +1,6 @@
 // 15. Call multiple async functions sequentially using await.
 // Hàm trả về promise để có thể await
-async function fc1() {
+export async function fc1() {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.log(1);
@@ -9,7 +9,7 @@ async function fc1() {
   });
 }
 
-async function fc2() {
+export async function fc2() {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.log(2);
@@ -18,7 +18,7 @@ async function fc2() {
   });
 }
 
-async function fc3() {
+export async function fc3() {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.log(3);

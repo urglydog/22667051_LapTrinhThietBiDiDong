@@ -1,4 +1,8 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fc1 = fc1;
+exports.fc2 = fc2;
+exports.fc3 = fc3;
 // 15. Call multiple async functions sequentially using await.
 // Hàm trả về promise để có thể await
 async function fc1() {
