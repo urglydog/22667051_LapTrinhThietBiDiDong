@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.expensetracker.app"
+      "bundleIdentifier": "com.expensetracker.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.expensetracker.app",
@@ -45,6 +48,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0e83cc70-a5e5-46b3-bc99-e9360141acb7"
+      }
+    },
+    "owner": "nguyenchithien"
   }
 }
