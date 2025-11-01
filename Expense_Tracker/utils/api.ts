@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let API_URL = "https://mockapi.io/api/v1/expenses";
+let API_URL = "https://6819db9a1ac115563506bd6e.mockapi.io/expense";
 
 export function setApiUrl(url: string) {
   API_URL = url;
