@@ -1,0 +1,18 @@
+Hướng dẫn build app với EAS:
+
+1. Đăng nhập vào EAS: npx eas login (sử dụng account của sinh viên)
+2. Tạo project EAS: npx eas build:configure
+3. Build preview cho Android: npx eas build --platform android --profile preview
+4. Build preview cho iOS: npx eas build --platform ios --profile preview
+
+Sau khi build xong, copy link từ EAS dashboard và paste vào đây:
+
+LINK BUILD ANDROID: 
+(Điền link sau khi build xong)
+
+LINK BUILD iOS:
+(Điền link sau khi build xong)
+
+LINK EXPO PREVIEW:
+(Điền link sau khi build xong)
+
