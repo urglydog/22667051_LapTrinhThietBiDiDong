@@ -1,20 +1,20 @@
+import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  TextInput,
-  RefreshControl,
-  StyleSheet,
-  SafeAreaView,
   Alert,
+  FlatList,
   Modal,
+  RefreshControl,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useRouter, useFocusEffect } from "expo-router";
-import { initDB, getAllExpenses, getExpensesByType, deleteExpense } from "../../database/expense";
-import { syncExpenses, setApiUrl, getApiUrl } from "../../utils/api";
-import { Ionicons } from "@expo/vector-icons";
+import { deleteExpense, getExpensesByType, initDB } from "../../database/expense";
+import { getApiUrl, setApiUrl, syncExpenses } from "../../utils/api";
 
 export default function Index() {
   const [expenses, setExpenses] = useState<any[]>([]);
@@ -24,6 +24,8 @@ export default function Index() {
   const [syncModalVisible, setSyncModalVisible] = useState(false);
   const [apiUrl, setApiUrlState] = useState(getApiUrl());
   const [syncing, setSyncing] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
   const router = useRouter();
 
   const loadExpenses = async () => {
@@ -52,7 +54,13 @@ export default function Index() {
     setRefreshing(false);
   };
 
+  const handleLongPress = (id: number) => {
+    setSelectedItemId(id);
+    setMenuVisible(true);
+  };
+
   const handleDelete = async (id: number) => {
+    setMenuVisible(false);
     Alert.alert("Xác nhận", "Xoá khoản thu chi này?", [
       { text: "Huỷ", style: "cancel" },
       {
@@ -61,6 +69,7 @@ export default function Index() {
         onPress: async () => {
           await deleteExpense(id);
           loadExpenses();
+          setSelectedItemId(null);
         },
       },
     ]);
@@ -138,6 +147,12 @@ export default function Index() {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={styles.trashButton}
+          onPress={() => router.push("/(tabs)/explore")}
+        >
+          <Ionicons name="trash" size={20} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity
           style={styles.statisticsButton}
           onPress={() => router.push("/(tabs)/statistics")}
         >
@@ -154,7 +169,7 @@ export default function Index() {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => router.push({ pathname: "/(tabs)/edit" as any, params: { id: item.id.toString() } })}
-            onLongPress={() => handleDelete(item.id)}
+            onLongPress={() => handleLongPress(item.id)}
             style={styles.item}
           >
             <View style={styles.itemHeader}>
@@ -229,6 +244,54 @@ export default function Index() {
           </View>
         </View>
       </Modal>
+
+      {/* Delete Menu Modal */}
+      <Modal
+        visible={menuVisible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => {
+          setMenuVisible(false);
+          setSelectedItemId(null);
+        }}
+      >
+        <TouchableOpacity
+          style={styles.menuOverlay}
+          activeOpacity={1}
+          onPress={() => {
+            setMenuVisible(false);
+            setSelectedItemId(null);
+          }}
+        >
+          <TouchableOpacity
+            style={styles.menuContent}
+            activeOpacity={1}
+            onPress={() => { }}
+          >
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => {
+                if (selectedItemId !== null) {
+                  handleDelete(selectedItemId);
+                }
+              }}
+            >
+              <Ionicons name="trash" size={20} color="#ff3b30" />
+              <Text style={styles.menuItemTextDelete}>Xóa</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => {
+                setMenuVisible(false);
+                setSelectedItemId(null);
+              }}
+            >
+              <Ionicons name="close" size={20} color="#666" />
+              <Text style={styles.menuItemText}>Hủy</Text>
+            </TouchableOpacity>
+          </TouchableOpacity>
+        </TouchableOpacity>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -298,8 +361,14 @@ const styles = StyleSheet.create({
   filterTextActive: {
     color: "#fff",
   },
+  trashButton: {
+    padding: 8,
+    borderRadius: 20,
+    backgroundColor: "#ff9500",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   statisticsButton: {
-    marginLeft: "auto",
     padding: 8,
     borderRadius: 20,
     backgroundColor: "#28a745",
@@ -450,6 +519,38 @@ const styles = StyleSheet.create({
   modalButtonTextCancel: {
     color: "#333",
     fontSize: 16,
+    fontWeight: "600",
+  },
+  menuOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  menuContent: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 8,
+    minWidth: 200,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  menuItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 16,
+    gap: 12,
+  },
+  menuItemText: {
+    fontSize: 16,
+    color: "#666",
+  },
+  menuItemTextDelete: {
+    fontSize: 16,
+    color: "#ff3b30",
     fontWeight: "600",
   },
 });

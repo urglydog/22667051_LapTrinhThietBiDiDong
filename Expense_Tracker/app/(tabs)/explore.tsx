@@ -1,23 +1,26 @@
+import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  TextInput,
-  RefreshControl,
   Alert,
-  StyleSheet,
+  FlatList,
+  Modal,
+  RefreshControl,
   SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useFocusEffect } from "expo-router";
-import { initDB, getDeletedExpenses, restoreExpense, permanentlyDeleteExpense } from "../../database/expense";
-import { Ionicons } from "@expo/vector-icons";
+import { getDeletedExpenses, initDB, permanentlyDeleteExpense, restoreExpense } from "../../database/expense";
 
 export default function Explore() {
   const [deletedExpenses, setDeletedExpenses] = useState<any[]>([]);
   const [search, setSearch] = useState("");
   const [refreshing, setRefreshing] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
 
   const loadDeletedExpenses = async () => {
     try {
@@ -45,7 +48,13 @@ export default function Explore() {
     setRefreshing(false);
   };
 
+  const handleLongPress = (id: number) => {
+    setSelectedItemId(id);
+    setMenuVisible(true);
+  };
+
   const handleRestore = async (id: number) => {
+    setMenuVisible(false);
     Alert.alert("Xác nhận", "Khôi phục khoản thu chi này?", [
       { text: "Huỷ", style: "cancel" },
       {
@@ -53,6 +62,7 @@ export default function Explore() {
         onPress: async () => {
           await restoreExpense(id);
           loadDeletedExpenses();
+          setSelectedItemId(null);
           Alert.alert("Thành công", "Đã khôi phục khoản thu chi");
         },
       },
@@ -60,6 +70,7 @@ export default function Explore() {
   };
 
   const handlePermanentlyDelete = async (id: number) => {
+    setMenuVisible(false);
     Alert.alert("Xác nhận", "Xoá vĩnh viễn khoản thu chi này?", [
       { text: "Huỷ", style: "cancel" },
       {
@@ -68,13 +79,14 @@ export default function Explore() {
         onPress: async () => {
           await permanentlyDeleteExpense(id);
           loadDeletedExpenses();
+          setSelectedItemId(null);
         },
       },
     ]);
   };
 
   const filteredDeletedExpenses = deletedExpenses.filter(
-    (e) =>
+    (e: any) =>
       e.title?.toLowerCase().includes(search.toLowerCase()) ||
       e.amount?.toString().includes(search)
   );
@@ -100,7 +112,7 @@ export default function Explore() {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onLongPress={() => handleRestore(item.id)}
+            onLongPress={() => handleLongPress(item.id)}
             style={styles.item}
           >
             <View style={styles.itemHeader}>
@@ -144,6 +156,65 @@ export default function Explore() {
         }
         contentContainerStyle={deletedExpenses.length === 0 ? styles.emptyList : styles.list}
       />
+
+      {/* Restore Menu Modal */}
+      <Modal
+        visible={menuVisible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => {
+          setMenuVisible(false);
+          setSelectedItemId(null);
+        }}
+      >
+        <TouchableOpacity
+          style={styles.menuOverlay}
+          activeOpacity={1}
+          onPress={() => {
+            setMenuVisible(false);
+            setSelectedItemId(null);
+          }}
+        >
+          <TouchableOpacity
+            style={styles.menuContent}
+            activeOpacity={1}
+            onPress={() => { }}
+          >
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => {
+                if (selectedItemId !== null) {
+                  handleRestore(selectedItemId);
+                }
+              }}
+            >
+              <Ionicons name="refresh" size={20} color="#007AFF" />
+              <Text style={styles.menuItemTextRestore}>Khôi phục</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => {
+                if (selectedItemId !== null) {
+                  handlePermanentlyDelete(selectedItemId);
+                }
+              }}
+            >
+              <Ionicons name="trash" size={20} color="#ff3b30" />
+              <Text style={styles.menuItemTextDelete}>Xóa vĩnh viễn</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => {
+                setMenuVisible(false);
+                setSelectedItemId(null);
+              }}
+            >
+              <Ionicons name="close" size={20} color="#666" />
+              <Text style={styles.menuItemText}>Hủy</Text>
+            </TouchableOpacity>
+          </TouchableOpacity>
+        </TouchableOpacity>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -261,5 +332,42 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#999",
     marginTop: 16,
+  },
+  menuOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  menuContent: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 8,
+    minWidth: 200,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  menuItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 16,
+    gap: 12,
+  },
+  menuItemText: {
+    fontSize: 16,
+    color: "#666",
+  },
+  menuItemTextRestore: {
+    fontSize: 16,
+    color: "#007AFF",
+    fontWeight: "600",
+  },
+  menuItemTextDelete: {
+    fontSize: 16,
+    color: "#ff3b30",
+    fontWeight: "600",
   },
 });
