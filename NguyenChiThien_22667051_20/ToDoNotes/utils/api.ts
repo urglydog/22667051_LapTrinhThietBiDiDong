@@ -1,19 +1,31 @@
-interface TodoApiItem {
-  id: number;
-  title: string;
-  completed: boolean;
+import axios from "axios";
+
+let API_URL = "https://6819db9a1ac115563506bd6e.mockapi.io/notes";
+
+export function setApiUrl(url: string) {
+  API_URL = url;
 }
 
-const API_URL = 'https://jsonplaceholder.typicode.com/todos';
+export function getApiUrl() {
+  return API_URL;
+}
 
-export const fetchTodos = async (): Promise<TodoApiItem[]> => {
+export async function syncNotes(notes: any[]) {
   try {
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-      throw new Error('Failed to fetch todos');
-    }
-    return await response.json();
-  } catch (error) {
-    throw new Error('Network error while fetching todos');
+    // MockAPI.io expects an array, but we'll send each note individually or as a batch
+    // First, delete all existing notes (if using mockapi.io collections)
+    // Then post new notes
+    const promises = notes.map(note => 
+      axios.post(API_URL, {
+        title: note.title,
+        note: note.note || "",
+        date: note.date,
+      })
+    );
+    await Promise.all(promises);
+    return { success: true };
+  } catch (e: any) {
+    console.error("Sync failed:", e);
+    throw new Error(e.response?.data?.message || "Đồng bộ thất bại");
   }
-};
+}
